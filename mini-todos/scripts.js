@@ -5,32 +5,46 @@ function renderEditor() {
 
     //inputEl.onchange = (e) => {
     //  console.log("text, ",e.target.value);
-       // console.log("input change: ",e);
-   // };
+    // console.log("input change: ",e);
+    // };
 
-   let addEl = document.querySelector("#default-todo-panel .todo-editor > button");
-   addEl.onclick = (e) => {
-    console.log("add click");
-    let newTask = {
-        title: inputEl.value,
-        done: false,
+    let addTask = ()=> {
+        let newTask = {
+            title: inputEl.value,
+            done: false,
+        };
+
+        inputEl.value = "";
+
+        tasks.push(newTask);
+
+        console.log("tasks: ", tasks);
+
+        renderTaskItems();
     };
- 
-    inputEl.value = "";
-
-    tasks.push(newTask);
     
-    console.log("tasks: ", tasks);
 
-    renderTaskItems();
- };
+    inputEl.onkeypress = (e) => {
+        if (e.key === "Enter") {
+           addTask();
+        }
+    };
+
+    let addEl = document.querySelector("#default-todo-panel .todo-editor > button");
+    addEl.onclick = (e) => {
+        addTask();
+    }; 
 }
 
 function renderTaskItems() {
     console.log("render items");
-    let itemsEl =  document.querySelector("#default-todo-panel .todo-items");
-    
-    for (let i =0; i< tasks.length; i++) {
+    let itemsEl = document.querySelector("#default-todo-panel .todo-items");
+
+    itemsEl.querySelectorAll("div").forEach((node) => node.remove());
+
+    console.log(itemsEl);
+
+    for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         let itemEl = document.createElement("div");
 
@@ -46,7 +60,7 @@ function renderTaskItems() {
         cancelEl.innerText = "X";
         itemEl.append(cancelEl);
         itemsEl.append(itemEl);
-      
+
     }
 }
 
