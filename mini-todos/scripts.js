@@ -58,7 +58,13 @@ function renderTaskItems() {
 
         let cancelEl = document.createElement("button");
         cancelEl.innerText = "X";
-        itemEl.append(cancelEl);
+
+        cancelEl.onclick = () =>{
+            tasks.splice(i,1);
+            renderTaskItems();
+        }
+
+        itemEl.append(cancelEl); 
         itemsEl.append(itemEl);
 
     }
