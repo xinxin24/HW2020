@@ -8,21 +8,20 @@ body {
     width: 35em;
     min-height:30em;
     margin-top: 3em;
-
+   
     border: 1px solid #eee;
     box-shadow: 4px 6px 6px #888;
 }
 
 #header {
-    width: 35em;
-    color: rgb(46, 158, 223);
     text-align: center;
+    color: white;
+    width: 35em; 
     padding: 1px;
-    border: 1px solid #eee
 }
 
 .todo-editor{
-    padding: 5px 20px;
+    padding: 5px 30px;
     display:flex;
 }
 
