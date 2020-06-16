@@ -30,3 +30,37 @@ body {
     font-size: 1.2em;
     padding: 2px 5px;
 }
+
+.todo-items{
+    padding: 5px 30px;
+}
+
+.todo-items > .task {
+    display: flex;
+    align-items: center;
+}
+
+.todo-items > .task > input {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.todo-items > .task > label {
+    flex-grow: 1;
+}
+
+.todo-items .ctrlbar > button {
+    border: none;
+    background: none;
+    color: rgb(192, 42, 42);
+    cursor: pointer;
+}
+
+.todo-items .ctrlbar > button:hover {
+    font-weight: bolder;
+    
+}
+
+.task.done > label {
+    text-decoration: line-through;
+}
