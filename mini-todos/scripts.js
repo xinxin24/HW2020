@@ -1,5 +1,5 @@
 
-let tasks = []; //{title: "aaaaa", done: false, important}
+let tasks = []; //{title: "aaaaa", done: false}
 function renderEditor() {
     let inputEl = document.querySelector("#default-todo-panel .todo-editor > input")
 
@@ -77,39 +77,112 @@ function renderTaskItems() {
         titleEl.innerText = task.title;
         itemEl.append(titleEl);
 
-        let ctrlbarEl = document.createElement("div");
-        ctrlbarEl.className ="ctrlbar";
-
-        let upEl = document.createElement("button");
-        upEl.innerText = "↑";
-        upEl.onclick = () => {
-            //
-        };
-        ctrlbarEl.append(upEl);
-
-        let downEl = document.createElement("button");
-        downEl.innerText = "↓";
-        downEl.onclick = () => {
-            //
-        };
-        ctrlbarEl.append(downEl);
-
-
-        let cancelEl = document.createElement("button");
-        cancelEl.innerText = "X";
-        cancelEl.onclick = () => {
-            tasks.splice(i, 1);
-            renderTaskItems();
-        };
-
-        ctrlbarEl.append(cancelEl);
+        let ctrlbarEl = renderTaskCtrlBar(tasks, i);
 
         itemEl.append(ctrlbarEl);
 
         itemsEl.append(itemEl);
 
+
     }
 }
+
+
+function renderTaskCtrlBar(tasks, taskIdx) {
+    let ctrlbarEl = document.createElement("div");
+    ctrlbarEl.className = "ctrlbar";
+
+    // let important = document.createElement("button");
+    // important.innerText = "⭐";
+    // important.onclick = () => {
+    //     //
+    // };
+
+    // ctrlbarEl.append(important);    //重要性标识
+
+
+    let upEl = document.createElement("button");
+    if (taskIdx === 0) {
+        upEl.disabled = true;
+    }
+    upEl.innerText = "⇧";
+    upEl.onclick = () => {
+        //
+    };
+    ctrlbarEl.append(upEl);
+
+    let downEl = document.createElement("button");
+    downEl.innerText = "⇩";
+    downEl.onclick = () => {
+        //
+    };
+    ctrlbarEl.append(downEl);
+
+
+    let cancelEl = document.createElement("button");
+    cancelEl.innerText = "X";
+    cancelEl.onclick = () => {
+        tasks.splice(taskIdx, 1);
+        renderTaskItems();
+    };
+
+    ctrlbarEl.append(cancelEl);
+
+    return ctrlbarEl;
+
+}
+
+// function moveUp(tag, pc) {
+//     var tagPre = get_previoussibling(tag);
+//     var t = document.getElementById(pc);
+//     if (tagPre != undefined) {
+//         t.insertBefore(tag, tagPre);
+//     }
+// }
+// function moveDown(tag) {
+//     var tagNext = get_nextsibling(tag);
+//     if (tagNext != undefined) {
+//         insertAfter(tag, tagNext);
+//     }
+// }
+
+// function get_previoussibling(n) {
+//     if (n.previousSibling != null) {
+//         var x = n.previousSibling;
+//         while (x.nodeType != 1) {
+//             x = x.previousSibling;
+//         }
+//         return x;
+//     }
+// }
+// function get_nextsibling(n) {
+//     if (n.nextSibling != null) {
+//         var x = n.nextSibling;
+//         while (x.nodeType != 1) {
+//             x = x.nextSibling;
+//         }
+//         return x;
+//     }
+// }
+// function insertAfter(newElement, targetElement) {
+//     var parent = targetElement.parentNode;
+//     if (parent.lastChild == targetElement) {
+//         parent.appendChild(newElement);
+//     } else {
+//         parent.insertBefore(newElement, targetElement.nextSibling);
+//     }
+//     clickUp.appendChild(upCon);
+//                 clickUp.setAttribute("href", "#");
+//                 clickDown.appendChild(downCon);
+//                 clickDown.setAttribute("href", "#")
+//                 clickUp.onclick = function () {
+//                     moveUp(this.parentNode.parentNode, myList);
+//                 }
+//                 clickDown.onclick = function () {
+//                     moveDown(this.parentNode.parentNode);
+//                 }
+// }
+
 
 renderEditor();
 renderTaskItems();
