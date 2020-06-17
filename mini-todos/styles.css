@@ -45,15 +45,33 @@ body {
     height: 1.5em;
 }
 
+
 .todo-items > .task > label {
     flex-grow: 1;
 }
 
+ .todo-items .ctrlbar > button {
+    border: none;
+    background: none;
+    color: rgb(47, 139, 179);
+    cursor: pointer;
+} 
+
 .todo-items .ctrlbar > button {
     border: none;
     background: none;
-    color: rgb(192, 42, 42);
+    color: rgb(47, 139, 179);
     cursor: pointer;
+}
+
+.todo-items .ctrlbar > button:disabled {
+    color: rgb(122, 142, 150);
+    /* cursor: pointer; */
+}
+
+.todo-items .ctrlbar > button:disabled:hover {
+    font-weight: unset;
+    
 }
 
 .todo-items .ctrlbar > button:hover {
