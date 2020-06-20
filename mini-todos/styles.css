@@ -82,3 +82,14 @@ body {
 .task.done > label {
     text-decoration: line-through;
 }
+
+
+
+
+.todo-items .ctrlbar > .improtant button {
+   
+    color: rgb(47, 139, 179);
+    cursor: pointer;
+}
+
+
