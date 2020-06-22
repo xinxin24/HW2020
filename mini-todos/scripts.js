@@ -94,14 +94,26 @@ function renderTaskCtrlBar(tasks, taskIdx) {
     let ctrlbarEl = document.createElement("div");
     ctrlbarEl.className = "ctrlbar";
 
+
+
+    let importantEl = document.createElement("button");
+    importantEl.innerText = "✰";
+    importantEl.onclick = () => {
+      // 
+    };
+    ctrlbarEl.append(importantEl);
+
+
+
+
+
     let upEl = document.createElement("button");
     if (taskIdx === 0) {
         upEl.disabled = true;
     }
     upEl.innerText = "⇧";
     upEl.onclick = () => {
-
-
+        //   
     };
     ctrlbarEl.append(upEl);
 
@@ -124,40 +136,6 @@ function renderTaskCtrlBar(tasks, taskIdx) {
 
     return ctrlbarEl;
 }
-
 renderEditor();
 renderTaskItems();
 
-
-
-
-
-
-
-//  var ostat = false;
-// function scrollstop() {
-// news.scrollAmount = 0;
-// ostat = true;
-// }
-// function scrollplay() {
-// news.scrollAmount = 5;
-// ostat = false;
-// }
-// function scrolldir() {
-// mid = screen.width / 2;
-// mouse = event.x;
-// if(mouse > mid) {
-// if(ostat == false) {
-// speed = (mouse - mid) / 25;
-// news.scrollAmount = speed;
-// }
-// news.direction = "right";
-// }
-// else {
-// if(ostat == false) {
-// speed = (mid - mouse) / 25;
-// news.scrollAmount = speed;
-// }
-// news.direction = "left";
-//    }
-// }
