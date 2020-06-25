@@ -56,15 +56,7 @@ function renderTaskItems() {
         itemEl.className = "task";
 
 
-        //     let importantEl = document.createElement("button");
-        //     importantEl.type = "checkbox1";
-        //    //  importantEl.checked = "✰";
-        //    importantEl.innerText = "✭";
-        //    itemEl.classList.change;
-        //    // importantEl.onclick = () => {
-        //    //     //   
-        //    // };
-        //    itemEl.append(importantEl);
+
 
 
         let doneEl = document.createElement("input");
@@ -111,6 +103,13 @@ function renderTaskCtrlBar(tasks, taskIdx) {
     let ctrlbarEl = document.createElement("div");
     ctrlbarEl.className = "ctrlbar";
 
+    let importantEl = document.createElement("button");
+    importantEl.innerText = "✰";
+    importantEl.onclick = () => {
+        // 
+    };
+
+    ctrlbarEl.append(importantEl);
 
     let upEl = document.createElement("button");
     if (taskIdx === 0) {
@@ -154,4 +153,6 @@ function renderTaskCtrlBar(tasks, taskIdx) {
 }
 renderEditor();
 renderTaskItems();
+
+
 
